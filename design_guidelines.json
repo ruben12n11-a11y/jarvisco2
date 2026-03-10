@@ -1,0 +1,155 @@
+{
+  "project_config": {
+    "name": "JarvisCO",
+    "platform": "React Native Expo",
+    "navigation": "expo-router",
+    "language": "es",
+    "theme_mode": "dark"
+  },
+  "design_philosophy": {
+    "persona": "E1 - The Anti-AI Designer",
+    "aesthetic": "Cyberpunk / Terminal / Brutalist",
+    "core_principles": [
+      "No default navigation headers - Build custom HUDs",
+      "Functionality over decoration - The data is the art",
+      "High Contrast - Pure Black (#000000) vs Neon",
+      "Monospace Supremacy - Treat all data like code"
+    ]
+  },
+  "colors": {
+    "palette": {
+      "background": "#050505",
+      "surface": "#121212",
+      "surface_highlight": "#1E1E1E",
+      "primary": "#00F0FF",
+      "secondary": "#FF003C",
+      "tertiary": "#FFD60A",
+      "success": "#39FF14",
+      "warning": "#FF9F0A",
+      "error": "#FF453A",
+      "text_primary": "#F0F0F0",
+      "text_secondary": "#888888",
+      "text_dim": "#444444",
+      "border": "#333333",
+      "terminal_bg": "#000000",
+      "terminal_text": "#39FF14"
+    },
+    "gradients": {
+      "primary_glow": ["transparent", "rgba(0, 240, 255, 0.1)", "transparent"],
+      "risk_high": ["#FF453A", "#FF003C"]
+    }
+  },
+  "typography": {
+    "font_families": {
+      "main": "System",
+      "code": "SpaceMono",
+      "heading": "System"
+    },
+    "sizes": {
+      "xs": 10,
+      "sm": 12,
+      "base": 14,
+      "lg": 16,
+      "xl": 20,
+      "2xl": 24,
+      "3xl": 30,
+      "4xl": 36
+    },
+    "weights": {
+      "light": "300",
+      "regular": "400",
+      "bold": "700",
+      "black": "900"
+    }
+  },
+  "spacing": {
+    "xs": 4,
+    "sm": 8,
+    "md": 16,
+    "lg": 24,
+    "xl": 32,
+    "2xl": 48,
+    "3xl": 64
+  },
+  "components": {
+    "buttons": {
+      "primary": {
+        "bg": "#00F0FF",
+        "text": "#000000",
+        "radius": 0,
+        "style": "Sharp edges, bold text, high visibility"
+      },
+      "secondary": {
+        "bg": "transparent",
+        "text": "#00F0FF",
+        "border": "#00F0FF",
+        "radius": 0
+      },
+      "danger": {
+        "bg": "rgba(255, 69, 58, 0.1)",
+        "text": "#FF453A",
+        "border": "#FF453A"
+      }
+    },
+    "cards": {
+      "style": "Flat, 1px border, no shadow (or hard shadow), black background",
+      "border_color": "#333333"
+    },
+    "inputs": {
+      "bg": "#121212",
+      "border": "#333333",
+      "text": "#FFFFFF",
+      "radius": 0,
+      "placeholder": "#666666"
+    }
+  },
+  "assets": {
+    "background_images": [
+      {
+        "url": "https://images.unsplash.com/photo-1643388019656-34a8006477c3?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "category": "setup_screen_bg",
+        "desc": "Abstract cyberpunk lines for initial setup/download screen"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1643388019517-cc10ed310a97?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "category": "about_screen_bg",
+        "desc": "Deep purple/blue abstract for settings/about"
+      }
+    ],
+    "icons": {
+      "library": "@expo/vector-icons",
+      "sets": ["Ionicons", "MaterialCommunityIcons", "Feather"],
+      "mappings": {
+        "terminal": "terminal",
+        "chat": "chatbubble-ellipses-outline",
+        "code": "code-slash-outline",
+        "settings": "settings-outline",
+        "download": "cloud-download-outline",
+        "warning": "alert-triangle-outline"
+      }
+    }
+  },
+  "layout_strategies": {
+    "terminal_screen": {
+      "structure": "SafeAreaView > KeyboardAvoidingView > ScrollView (Logs) > InputArea",
+      "style": "Full immersion. Hide top status bar if possible or blend it. Green text on black."
+    },
+    "chat_screen": {
+      "structure": "Header (AI Status) > FlatList (Messages) > InputArea",
+      "message_bubbles": "No roundness. Sharp rectangles. User: Right aligned (Cyan border). AI: Left aligned (Green border)."
+    },
+    "setup_screen": {
+      "structure": "ImageBackground > BlurView (Dark) > Content",
+      "style": "Cinematic introduction. Progress bars MUST be blocky (retro style)."
+    }
+  },
+  "universal_guidelines": [
+    "Use StyleSheet.create() for all styles. Do NOT use inline styles.",
+    "Implement 'SafeAreaView' on all screens.",
+    "Text must be readable. Minimum contrast ratio 4.5:1.",
+    "Language: SPANISH (Español) for all UI text.",
+    "Animations: Use LayoutAnimation or Reanimated for smooth transitions, but keep them 'mechanical' (linear/ease-out), not 'bouncy'.",
+    "Data-TestID: Add 'testID' prop to all interactables (React Native uses testID, not data-testid)."
+  ],
+  "main_agent_instructions": "You are building a React Native Expo app. Stick to the file structure provided. Use 'expo-router' for navigation. Do not assume web-only libraries (like plain HTML elements). Use <View>, <Text>, <TouchableOpacity>."
+}
