@@ -265,12 +265,19 @@ async def terminal_ws(websocket: WebSocket):
 
             # Execute command
             try:
+                # Ensure terminal uses the same venv as backend
+                terminal_env = {**os.environ, "HOME": str(Path.home()), "TERM": "xterm"}
+                venv_bin = Path("/root/.venv/bin")
+                if venv_bin.exists():
+                    terminal_env["PATH"] = f"{venv_bin}:{terminal_env.get('PATH', '')}"
+                    terminal_env["VIRTUAL_ENV"] = str(venv_bin.parent)
+
                 process = await asyncio.create_subprocess_shell(
                     command,
                     stdout=asyncio.subprocess.PIPE,
                     stderr=asyncio.subprocess.PIPE,
                     cwd=cwd,
-                    env={**os.environ, "HOME": str(Path.home()), "TERM": "xterm"},
+                    env=terminal_env,
                 )
 
                 async def read_stream(stream, stype):
